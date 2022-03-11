@@ -33,9 +33,6 @@ return packer.startup({function(use)
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
 
-  -- color scheme
-  use 'projekt0n/github-nvim-theme'
-
   use {
     'lewis6991/gitsigns.nvim',
     requires = {
@@ -51,8 +48,24 @@ return packer.startup({function(use)
   }
 
   use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    "hoob3rt/lualine.nvim",
+    after = "github-nvim-theme",
+    config = function()
+      require("lualine").setup {
+        options = {
+          theme = "auto"
+        }
+      }
+    end
+  }
+
+  use {
+    "projekt0n/github-nvim-theme",
+    config = function()
+      require("github-theme").setup({
+        theme_style = "dark_default"
+      })
+    end
   }
 
   use {
@@ -86,8 +99,10 @@ return packer.startup({function(use)
   use { "hrsh7th/cmp-cmdline" }
   use { "hrsh7th/cmp-nvim-lsp" }
 
-  use { 'saadparwaiz1/cmp_luasnip' } -- Snippets source for nvim-cmp
-  use { 'L3MON4D3/LuaSnip' } -- Snippets plugin
+  -- snippets source for nvim-cmp
+  use { 'saadparwaiz1/cmp_luasnip' }
+  -- snippets plugin
+  use { 'L3MON4D3/LuaSnip' }
 
   use { 'numToStr/Comment.nvim' }
 
