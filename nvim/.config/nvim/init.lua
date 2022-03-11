@@ -71,10 +71,10 @@ require('gitsigns').setup()
 require('nvim-treesitter.configs').setup {
   highlight = {
     enable = true,
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same 
-    -- time. Set this to `true` if you depend on 'syntax' being enabled 
-    -- (like for indentation). Using this option may slow down your editor, 
-    -- and you may see some duplicate highlights. Instead of true it can 
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same
+    -- time. Set this to `true` if you depend on 'syntax' being enabled
+    -- (like for indentation). Using this option may slow down your editor,
+    -- and you may see some duplicate highlights. Instead of true it can
     -- also be a list of languages
     additional_vim_regex_highlighting = false,
   },
@@ -202,7 +202,7 @@ cmp.setup.cmdline(':', {
   })
 })
 
-local servers = { 'bashls', 'pyright', 'dockerls', 'sumneko_lua'}
+local servers = {'bashls', 'pyright', 'dockerls', 'sumneko_lua'}
 
 -- setup lspconfig
 local capabilities = require('cmp_nvim_lsp').update_capabilities(
@@ -217,9 +217,8 @@ for _, lsp in ipairs(servers) do
 end
 
 local lsp_installer_servers = require('nvim-lsp-installer.servers')
-
--- Loop through the servers listed above and set them up. If a server is
--- not already installed, install it.
+-- loop through the servers listed above and set them up
+-- if a server is not already installed, install it
 for _, server_name in pairs(servers) do
   local available, server = lsp_installer_servers.get_server(server_name)
   if available and not server:is_installed() then

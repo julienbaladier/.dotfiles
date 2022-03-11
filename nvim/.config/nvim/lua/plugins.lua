@@ -1,7 +1,7 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({
+  PACKER_BOOTSTRAP = fn.system({
     'git',
     'clone',
     '--depth', '1',
@@ -88,11 +88,11 @@ return packer.startup({function(use)
 
   use { 'saadparwaiz1/cmp_luasnip' } -- Snippets source for nvim-cmp
   use { 'L3MON4D3/LuaSnip' } -- Snippets plugin
-  
+
   use { 'numToStr/Comment.nvim' }
 
   -- Automatically set up your configuration after cloning packer.nvim
-  if packer_bootstrap then
+  if  PACKER_BOOTSTRAP then
     require('packer').sync()
   end
 end,

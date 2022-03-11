@@ -1,5 +1,5 @@
 vim.api.nvim_set_keymap(
-  'n', '<Leader>R', ':source $MYVIMRC<CR>', 
+  'n', '<Leader>R', ':source $MYVIMRC<CR>',
   { noremap = true }
 )
 
