@@ -31,6 +31,8 @@ vim.opt.signcolumn = "yes"
 vim.opt.guifont = "Monospace:h50"
 
 vim.o.clipboard = "unnamedplus"
+vim.o.encoding = "utf-8"
+vim.o.fileencoding = "utf-8"
 
 vim.g.mapleader = " "
 
