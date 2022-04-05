@@ -1,7 +1,7 @@
 local lsp_installer = require("nvim-lsp-installer")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-local servers = {'bashls', 'pyright', 'dockerls', 'sumneko_lua'}
+local servers = {'bashls', 'ltex', 'pyright', 'dockerls', 'sumneko_lua'}
 
 local lsp_installer_servers = require('nvim-lsp-installer.servers')
 -- loop through the servers listed above and set them up
