@@ -74,6 +74,13 @@ return packer.startup({function(use)
   }
 
   use {
+    'lewis6991/spellsitter.nvim',
+    requires = {
+      { 'nvim-treesitter/nvim-treesitter' },
+    }
+  }
+
+  use {
     'nvim-telescope/telescope.nvim',
     requires = {
       { 'nvim-lua/plenary.nvim' },
