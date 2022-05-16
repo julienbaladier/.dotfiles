@@ -98,6 +98,13 @@ return packer.startup({function(use)
   -- language server installer
   use { "williamboman/nvim-lsp-installer" }
 
+  use {
+    "jose-elias-alvarez/null-ls.nvim",
+    requires = {
+      { 'nvim-lua/plenary.nvim' },
+    }
+  }
+
   -- completion
   use { "hrsh7th/nvim-cmp" }
   use { "onsails/lspkind-nvim" }
