@@ -1,4 +1,5 @@
-
+minimum_pre_commit_version: '2.19.0'
+default_stages: [commit, push]
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v2.3.0
@@ -43,4 +44,3 @@ repos:
   rev: v0.13.1
   hooks:
     - id: stylua-github
-default_stages: [commit, push]
