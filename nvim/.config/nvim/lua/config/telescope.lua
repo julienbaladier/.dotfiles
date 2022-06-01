@@ -1,8 +1,8 @@
-local telescope = require('telescope')
+local telescope = require("telescope")
 
-telescope.setup{
+telescope.setup({
   defaults = {
-    mappings = {}
+    mappings = {},
   },
   pickers = {},
   extensions = {
@@ -11,8 +11,7 @@ telescope.setup{
       override_generic_sorter = true,
       override_file_sorter = true,
       case_mode = "smart_case",
-    }
-  }
-}
-telescope.load_extension('fzf')
-
+    },
+  },
+})
+telescope.load_extension("fzf")

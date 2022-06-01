@@ -6,7 +6,7 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 vim.opt.exrc = true
-vim.opt.guicursor= ""
+vim.opt.guicursor = ""
 
 vim.opt.relativenumber = true
 vim.opt.number = true
@@ -19,7 +19,7 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = vim.fn.stdpath('config') .. "/undodir"
+vim.opt.undodir = vim.fn.stdpath("config") .. "/undodir"
 vim.opt.undofile = true
 
 vim.opt.incsearch = true
@@ -38,4 +38,3 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 
 vim.g.mapleader = " "
-

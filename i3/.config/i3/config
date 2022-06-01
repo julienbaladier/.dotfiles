@@ -176,7 +176,7 @@ bindsym $mod+l exec --no-startup-id /usr/bin/i3lock-fancy
 for_window [title="FreeRDP:.*"] floating disable
 for_window [class="xfreerdp"] floating disable
 for_window [class="rdesktop"] floating disable
-for_window [class="^.*"] border pixel 3 
+for_window [class="^.*"] border pixel 3
 
 
 # assign [class="(?i)firefox"] $ws10

@@ -1,4 +1,4 @@
-require('nvim-treesitter.configs').setup {
+require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
     -- setting this to true will run `:h syntax` and tree-sitter at the same
@@ -18,7 +18,6 @@ require('nvim-treesitter.configs').setup {
     },
   },
   indent = {
-    enable = true
-  }
-}
-
+    enable = true,
+  },
+})

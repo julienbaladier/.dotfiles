@@ -6,7 +6,7 @@ end
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
-null_ls.setup {
+null_ls.setup({
   debug = true,
   sources = {
     formatting.black.with({ prefer_local = ".venv/bin" }),
@@ -18,4 +18,4 @@ null_ls.setup {
     diagnostics.mypy.with({ prefer_local = ".venv/bin" }),
     formatting.stylua,
   },
-}
+})
