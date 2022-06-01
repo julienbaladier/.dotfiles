@@ -1,46 +1,85 @@
-minimum_pre_commit_version: '2.19.0'
+minimum_pre_commit_version: "2.19.0"
 default_stages: [commit, push]
 repos:
-- repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v2.3.0
-  hooks:
-  - id: pretty-format-json
-    args: [--autofix, --no-ensure-ascii, --no-sort-keys]
-  - id: end-of-file-fixer
-  - id: trailing-whitespace
-  - id: check-added-large-files
-  - id: check-merge-conflict
-  - id: check-case-conflict
-  - id: check-yaml
-  - id: check-json
-  - id: check-toml
-  - id: check-xml
-- repo: https://github.com/jumanjihouse/pre-commit-hooks
-  rev: '2.1.6'
-  hooks:
-  - id: forbid-binary
-  - id: git-check  # Configure in .gitattributes
-  - id: markdownlint # Configure in .mdlrc
-  - id: shellcheck
-  - id: shfmt
-- repo: https://github.com/Lucas-C/pre-commit-hooks
-  rev: v1.2.0
-  hooks:
-    - id: forbid-crlf
-    - id: remove-crlf
-    - id: forbid-tabs
-    - id: remove-tabs
-      args: [--whitespaces-count, '2']
-- repo: https://github.com/gitguardian/ggshield
-  rev: v1.11.0
-  hooks:
-  - id: ggshield
-    language_version: python3
-- repo: https://github.com/zricethezav/gitleaks
-  rev: v8.2.0
-  hooks:
-  - id: gitleaks
-- repo: https://github.com/JohnnyMorganz/StyLua
-  rev: v0.13.1
-  hooks:
-    - id: stylua-github
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.2.0
+    hooks:
+      # sets a standard for formatting json files
+      - id: pretty-format-json
+        args: [--autofix, --no-ensure-ascii, --no-sort-keys]
+      # ensures that a file is either empty, or ends with one newline
+      - id: end-of-file-fixer
+      # replaces or checks mixed line ending
+      - id: mixed-line-ending
+      # trims trailing whitespace
+      - id: trailing-whitespace
+      # prevents giant files from being committed
+      - id: check-added-large-files
+      # checks for files that contain merge conflict strings
+      - id: check-merge-conflict
+      # checks for files that would conflict in case-insensitive filesystems
+      - id: check-case-conflict
+      # ensures that (non-binary) executables have a shebang
+      - id: check-executables-have-shebangs
+      # ensures that (non-binary) files with a shebang are executable
+      - id: check-shebang-scripts-are-executable
+      # checks for symlinks which do not point to anything
+      - id: check-symlinks
+      # detects symlinks which are changed to regular files with a content of a
+      # path which that symlink was pointing to
+      - id: destroyed-symlinks
+      # checks yaml files for parseable syntax
+      - id: check-yaml
+      # checks json files for parseable syntax
+      - id: check-json
+      # checks toml files for parseable syntax
+      - id: check-toml
+      # checks xml files for parseable syntax
+      - id: check-xml
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: "2.1.6"
+    hooks:
+      # forbid binary files from being committed
+      - id: forbid-binary
+      # use git to check for conflict markers and core.whitespace errors,
+      # respecting .gitattributes
+      - id: git-check
+      # protect first parent from foxtrot merges
+      - id: protect-first-parent
+      # shell scripts conform to shellcheck
+      - id: shellcheck
+      # sheck shell style with shfmt
+      - id: shfmt
+  - repo: https://github.com/Lucas-C/pre-commit-hooks
+    rev: v1.2.0
+    hooks:
+      # forbid files containing CRLF end-lines to be committed
+      - id: forbid-crlf
+      # replace CRLF end-lines by LF ones before committing
+      - id: remove-crlf
+      # forbid files containing tabs to be committed
+      - id: forbid-tabs
+      # replace tabs by whitespaces before committing
+      - id: remove-tabs
+        args: [--whitespaces-count, "2"]
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.6.2
+    hooks:
+      - id: prettier
+  - repo: https://github.com/markdownlint/markdownlint
+    rev: v0.11.0
+    hooks:
+      - id: markdownlint
+  - repo: https://github.com/gitguardian/ggshield
+    rev: v1.11.0
+    hooks:
+      - id: ggshield
+        language_version: python3
+  - repo: https://github.com/zricethezav/gitleaks
+    rev: v8.2.0
+    hooks:
+      - id: gitleaks
+  - repo: https://github.com/JohnnyMorganz/StyLua
+    rev: v0.13.1
+    hooks:
+      - id: stylua-github
