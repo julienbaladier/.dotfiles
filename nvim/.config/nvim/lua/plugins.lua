@@ -12,12 +12,13 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd([[packadd packer.vim]])
 end
 
-vim.cmd([[
-  augroup packer_user_config
-  autocmd!
-  autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
+vim.api.nvim_create_augroup("packer_user_config", {})
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "plugins.lua",
+  command = "source <afile> | PackerSync",
+  group = "packer_user_config",
+  desc = "Update plugins when plugins.lua is updated"
+})
 
 local ok, packer = pcall(require, "packer")
 if not ok then
