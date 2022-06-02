@@ -57,6 +57,7 @@ return packer.startup({
         require("lualine").setup({
           options = {
             theme = "auto",
+            globalstatus = true
           },
         })
       end,
