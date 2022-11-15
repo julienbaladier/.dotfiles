@@ -69,6 +69,7 @@ return packer.startup({
       config = function()
         require("github-theme").setup({
           theme_style = "dark_default",
+          transparent = true,
         })
       end,
     })
