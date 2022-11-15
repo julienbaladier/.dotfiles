@@ -38,10 +38,20 @@ return packer.startup({
     use("tpope/vim-repeat")
 
     use({
+      "petertriho/nvim-scrollbar",
+      config = function()
+        require("scrollbar").setup()
+      end,
+    })
+
+    use({
       "lewis6991/gitsigns.nvim",
       requires = {
         "nvim-lua/plenary.nvim",
       },
+      config = function()
+        require("config.gitsigns")
+      end,
     })
 
     use({
