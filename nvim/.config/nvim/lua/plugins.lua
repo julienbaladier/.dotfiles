@@ -77,6 +77,7 @@ return packer.startup({
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
     })
+    use({ "nvim-treesitter/nvim-treesitter-context" })
 
     use({
       "lewis6991/spellsitter.nvim",
