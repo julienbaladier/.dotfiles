@@ -25,7 +25,12 @@ null_ls.setup({
       method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
     }),
     diagnostics.mypy.with({ prefer_local = ".venv/bin" }),
+    diagnostics.shellcheck.with({}),
+    formatting.shfmt.with({ extra_args = { "-i", "2", "-ci" } }),
     formatting.stylua,
+    formatting.prettier.with({
+      filetypes = { "html", "json", "yaml", "markdown", "toml" },
+    }),
     code_actions.gitsigns,
   },
   on_attach = function(client, bufnr)
