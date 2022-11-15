@@ -1,10 +1,13 @@
 local telescope = require("telescope")
+local trouble = require("trouble")
 
 telescope.setup({
   defaults = {
-    mappings = {},
+    mappings = {
+      i = { ["<c-t>"] = trouble.open_with_trouble },
+      n = { ["<c-t>"] = trouble.open_with_trouble },
+    },
   },
-  pickers = {},
   extensions = {
     fzf = {
       fuzzy = true,
