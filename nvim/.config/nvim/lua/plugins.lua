@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = "plugins.lua",
   command = "source <afile> | PackerSync",
   group = "packer_user_config",
-  desc = "Update plugins when plugins.lua is updated"
+  desc = "Update plugins when plugins.lua is updated",
 })
 
 local ok, packer = pcall(require, "packer")
@@ -68,7 +68,7 @@ return packer.startup({
         require("lualine").setup({
           options = {
             theme = "auto",
-            globalstatus = true
+            globalstatus = true,
           },
         })
       end,
@@ -107,7 +107,6 @@ return packer.startup({
       },
     })
 
-    -- use { 'mfukar/robotframework-vim' }
     use({ "ellisonleao/glow.nvim" })
 
     -- enable LSP
