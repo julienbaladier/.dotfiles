@@ -14,7 +14,7 @@ for _, server_name in pairs(servers) do
 end
 
 -- setup lspconfig
-local capabilities = cmp_nvim_lsp.update_capabilities(
+local capabilities = cmp_nvim_lsp.default_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 
@@ -111,7 +111,7 @@ local on_attach = function(_, bufnr)
     bufnr,
     "n",
     "<leader>fo",
-    "<cmd>lua vim.lsp.buf.formatting()<CR>",
+    "<cmd>lua vim.lsp.buf.format()<CR>",
     opts
   )
 end
