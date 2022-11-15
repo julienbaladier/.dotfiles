@@ -1,4 +1,5 @@
 require("nvim-treesitter.configs").setup({
+  auto_install = true,
   highlight = {
     enable = true,
     -- setting this to true will run `:h syntax` and tree-sitter at the same
