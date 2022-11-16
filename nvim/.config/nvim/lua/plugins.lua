@@ -54,6 +54,8 @@ return packer.startup({
       end,
     })
 
+    use({ "tpope/vim-fugitive" })
+
     use({
       "kyazdani42/nvim-tree.lua",
       requires = {
