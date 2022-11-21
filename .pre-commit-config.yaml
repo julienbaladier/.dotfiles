@@ -70,11 +70,6 @@ repos:
     rev: v0.11.0
     hooks:
       - id: markdownlint
-  - repo: https://github.com/gitguardian/ggshield
-    rev: v1.11.0
-    hooks:
-      - id: ggshield
-        language_version: python3
   - repo: https://github.com/zricethezav/gitleaks
     rev: v8.2.0
     hooks:
