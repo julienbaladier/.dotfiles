@@ -38,4 +38,3 @@ vim.keymap.set("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>")
 vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist<cr>")
 vim.keymap.set("n", "<leader>xq", "<cmd>Trouble quickfix<cr>")
 vim.keymap.set("n", "gR", "<cmd>Trouble lsp_references<cr>")
-

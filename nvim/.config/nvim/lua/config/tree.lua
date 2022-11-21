@@ -2,40 +2,41 @@ require("nvim-tree").setup({
   disable_netrw = true,
   hijack_netrw = true,
   open_on_setup = true,
-  ignore_ft_on_setup = {},
   open_on_tab = false,
   hijack_cursor = false,
-  update_cwd = false,
   diagnostics = {
     enable = true,
-    icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
-    },
+    show_on_dirs = true,
+  },
+  filesystem_watchers = {
+    enable = true,
   },
   update_focused_file = {
-    enable = false,
-    update_cwd = false,
-    ignore_list = {},
-  },
-  system_open = {
-    cmd = nil,
-    args = {},
+    enable = true,
+    update_root = false,
   },
   filters = {
     dotfiles = false,
-    custom = {},
+    custom = { "^.git$" },
   },
   git = {
     enable = true,
     ignore = true,
     timeout = 500,
   },
+  renderer = {
+    group_empty = true,
+  },
+  tab = {
+    sync = {
+      open = true,
+      close = true,
+      ignore = { "^fugitive://.*" },
+    },
+  },
   view = {
-    width = 30,
-    hide_root_folder = false,
+    adaptive_size = true,
+    hide_root_folder = true,
     side = "left",
     mappings = {
       custom_only = false,
