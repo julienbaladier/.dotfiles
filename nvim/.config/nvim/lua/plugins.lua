@@ -32,7 +32,6 @@ return packer.startup({
     use("wbthomason/packer.nvim")
 
     use("google/vim-jsonnet")
-    use("mfukar/robotframework-vim")
 
     use("tpope/vim-surround")
     use("tpope/vim-repeat")
