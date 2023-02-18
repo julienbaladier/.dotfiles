@@ -11,6 +11,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
   debug = true,
+  temp_dir = "/tmp",
   sources = {
     formatting.black.with({ prefer_local = ".venv/bin" }),
     formatting.isort.with({ prefer_local = ".venv/bin" }),
