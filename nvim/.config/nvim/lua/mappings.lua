@@ -3,6 +3,7 @@ vim.keymap.set("n", "<leader><cr>", ":source $MYVIMRC<CR>")
 vim.keymap.set("n", "<leader>tt", ":NvimTreeToggle<cr>")
 vim.keymap.set("n", "<leader>tr", ":NvimTreeRefresh<cr>")
 vim.keymap.set("n", "<leader>tff", ":NvimTreeFindFile<cr>")
+vim.keymap.set("n", "<leader>tc", ":NvimTreeCollapse<cr>")
 
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
 vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
