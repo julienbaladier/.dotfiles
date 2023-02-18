@@ -1,5 +1,7 @@
 local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local install_path = fn.stdpath("data")
+  .. "/site/pack/packer/start/packer.nvim"
+
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system({
     "git",
@@ -60,6 +62,9 @@ return packer.startup({
       requires = {
         "kyazdani42/nvim-web-devicons",
       },
+      config = function()
+        require("config.tree")
+      end,
     })
 
     use({
@@ -88,14 +93,33 @@ return packer.startup({
     use({
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
+      config = function()
+        require("config.treesitter")
+      end,
     })
-    use({ "nvim-treesitter/nvim-treesitter-context" })
+
+    use({
+      "nvim-treesitter/nvim-treesitter-context",
+      requires = {
+        { "nvim-treesitter/nvim-treesitter" },
+      },
+      config = function()
+        require("treesitter-context").setup({
+          enable = true,
+        })
+      end,
+    })
 
     use({
       "lewis6991/spellsitter.nvim",
       requires = {
         { "nvim-treesitter/nvim-treesitter" },
       },
+      config = function()
+        require("spellsitter").setup({
+          enable = true,
+        })
+      end,
     })
 
     use({
@@ -108,7 +132,13 @@ return packer.startup({
       },
     })
 
-    use({ "ellisonleao/glow.nvim" })
+    use({
+      "ellisonleao/glow.nvim",
+      config = function()
+        vim.g.glow_style = "dark"
+        vim.g.glow_use_pager = false
+      end,
+    })
 
     -- enable LSP
     use({ "neovim/nvim-lspconfig" })
@@ -137,8 +167,12 @@ return packer.startup({
     use({ "saadparwaiz1/cmp_luasnip" })
     -- snippets plugin
     use({ "L3MON4D3/LuaSnip" })
-
-    use({ "numToStr/Comment.nvim" })
+    use({
+      "numToStr/Comment.nvim",
+      config = function()
+        require("Comment").setup()
+      end,
+    })
 
     use({
       "folke/trouble.nvim",
