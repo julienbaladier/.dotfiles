@@ -1,7 +1,7 @@
 local lsp_installer = require("nvim-lsp-installer")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-local servers = { "bashls", "ltex", "pyright", "dockerls", "sumneko_lua" }
+local servers = { "bashls", "ltex", "pyright", "dockerls", "lua_ls" }
 
 local lsp_installer_servers = require("nvim-lsp-installer.servers")
 -- loop through the servers listed above and set them up
@@ -123,9 +123,9 @@ lsp_installer.on_server_ready(function(server)
     capabilities = capabilities,
   }
 
-  if server.name == "sumneko_lua" then
-    local sumneko_opts = require("config.lsp.settings.sumneko_lua")
-    opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+  if server.name == "lua_ls" then
+    local lua_ls_opts = require("config.lsp.settings.lua_ls")
+    opts = vim.tbl_deep_extend("force", lua_ls_opts, opts)
   end
 
   server:setup(opts)
