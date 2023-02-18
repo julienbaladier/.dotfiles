@@ -30,7 +30,7 @@ require("nvim-tree").setup({
     sync = {
       open = true,
       close = true,
-      ignore = { "^fugitive://.*" },
+      ignore = { "^fugitive://.*", "^term://.*" },
     },
   },
   view = {
