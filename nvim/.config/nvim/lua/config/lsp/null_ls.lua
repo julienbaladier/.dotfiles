@@ -16,6 +16,7 @@ null_ls.setup({
     formatting.black.with({ prefer_local = ".venv/bin" }),
     formatting.isort.with({ prefer_local = ".venv/bin" }),
     diagnostics.pyproject_flake8.with({ prefer_local = ".venv/bin" }),
+    diagnostics.yamllint,
     diagnostics.pylint.with({ prefer_local = ".venv/bin" }),
     diagnostics.vulture.with({
       prefer_local = ".venv/bin",
@@ -30,7 +31,7 @@ null_ls.setup({
     formatting.shfmt.with({ extra_args = { "-i", "2", "-ci" } }),
     formatting.stylua,
     formatting.prettier.with({
-      filetypes = { "html", "json", "yaml", "markdown", "toml" },
+      filetypes = { "html", "json", "markdown", "toml" },
     }),
     code_actions.gitsigns,
   },
