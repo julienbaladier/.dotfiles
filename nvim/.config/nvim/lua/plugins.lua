@@ -1,6 +1,5 @@
 local fn = vim.fn
-local install_path = fn.stdpath("data")
-  .. "/site/pack/packer/start/packer.nvim"
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system({
@@ -24,14 +23,14 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 
 local ok, packer = pcall(require, "packer")
 if not ok then
-  vim.notify("packer not available")
+  vim.notify("packer is not available")
   return
 end
 
 return packer.startup({
   function(use)
     -- packages manager
-    use("wbthomason/packer.nvim")
+    use({ "wbthomason/packer.nvim" })
 
     use("google/vim-jsonnet")
 
@@ -50,9 +49,6 @@ return packer.startup({
       requires = {
         "nvim-lua/plenary.nvim",
       },
-      config = function()
-        require("config.gitsigns")
-      end,
     })
 
     use({ "tpope/vim-fugitive" })
@@ -62,9 +58,6 @@ return packer.startup({
       requires = {
         "kyazdani42/nvim-web-devicons",
       },
-      config = function()
-        require("config.tree")
-      end,
     })
 
     use({
@@ -93,9 +86,6 @@ return packer.startup({
     use({
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
-      config = function()
-        require("config.treesitter")
-      end,
     })
 
     use({
@@ -141,9 +131,25 @@ return packer.startup({
     })
 
     -- enable LSP
-    use({ "neovim/nvim-lspconfig" })
+    use({
+      "neovim/nvim-lspconfig",
+      requires = {
+        "b0o/schemastore.nvim",
+      },
+    })
+
     -- language server installer
-    use({ "williamboman/nvim-lsp-installer" })
+    use({
+      "williamboman/mason.nvim",
+    })
+
+    use({
+      "williamboman/mason-lspconfig.nvim",
+      requires = {
+        "neovim/nvim-lspconfig",
+        "williamboman/mason.nvim",
+      },
+    })
 
     use({
       "jose-elias-alvarez/null-ls.nvim",
@@ -179,6 +185,9 @@ return packer.startup({
       requires = {
         { "kyazdani42/nvim-web-devicons" },
       },
+      config = function()
+        require("trouble").setup()
+      end,
     })
 
     -- Automatically set up your configuration after cloning packer.nvim
