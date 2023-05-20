@@ -125,8 +125,10 @@ return packer.startup({
     use({
       "ellisonleao/glow.nvim",
       config = function()
-        vim.g.glow_style = "dark"
-        vim.g.glow_use_pager = false
+        require("glow").setup({
+          style = "dark",
+          pager = false,
+        })
       end,
     })
 
