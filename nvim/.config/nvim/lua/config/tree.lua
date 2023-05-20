@@ -24,6 +24,7 @@ require("nvim-tree").setup({
     timeout = 500,
   },
   renderer = {
+    root_folder_label = false,
     group_empty = true,
   },
   tab = {
@@ -35,7 +36,6 @@ require("nvim-tree").setup({
   },
   view = {
     adaptive_size = true,
-    hide_root_folder = true,
     side = "left",
     mappings = {
       custom_only = false,
