@@ -61,12 +61,12 @@ return packer.startup({
     })
 
     use({
-      "hoob3rt/lualine.nvim",
+      "nvim-lualine/lualine.nvim",
+      requires = { "nvim-tree/nvim-web-devicons" },
       after = "github-nvim-theme",
       config = function()
         require("lualine").setup({
           options = {
-            theme = "auto",
             globalstatus = true,
           },
         })
@@ -77,8 +77,9 @@ return packer.startup({
       "projekt0n/github-nvim-theme",
       config = function()
         require("github-theme").setup({
-          theme_style = "dark_default",
-          transparent = true,
+          options = {
+            transparent = true,
+          },
         })
         vim.cmd("colorscheme github_dark_high_contrast")
       end,
