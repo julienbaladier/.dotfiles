@@ -37,10 +37,6 @@ require("nvim-tree").setup({
   view = {
     adaptive_size = true,
     side = "left",
-    mappings = {
-      custom_only = false,
-      list = {},
-    },
     number = false,
     relativenumber = false,
     signcolumn = "yes",
